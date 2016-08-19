@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html>
+	
+<title>watcher-example</title>
+
+<head>
+	<h1>Understanding $watch</h1>
+</head>
+<body>
+
+<div ng-app="watchers">
+	<div class="container" ng-controller="watchersController">
+		
+		<p> By Default <b>$watch</b> look for the <i>reference equality</i>. </p>
+		<p> check the checkbox to see <i>Object Equality</i>: <b>{{objectEquality}}</b>			
+			<input type="checkbox" ng-model="objectEquality" ng-click="changeOption(objectEquality)"></input> 
+		</p>
+		<p> fire <b> watchGroup</b> on any changes to value, reference OR collection.
+		<input type="checkbox" ng-model="isWatchGroup" ng-click="fireWatchGroup(isWatchGroup)"></input> 
+		</p>
+		
+		<div>
+
+			<div>
+				<p>{{value}}</p>
+				<button ng-click="watchFunction('value')">click to change value</button>
+			</div>
+			
+			<div>
+				<p>{{collections}}</p>
+				<p>Note that on adding a property to the Collection watcher {{message}} fires</p>
+				<button ng-click="addItem()">add an Item</button>
+			</div>
+
+			<div>
+				<p>{{reference}}</p>
+				<p>Note that on adding a property to the Reference watcher {{message}} fires</p>
+				<button ng-click="addProperty()">add a Property</button>
+			</div>
+
+			<div>
+				<p>{{reference}}</p>
+				<button ng-click="watchFunction('reference')">click to change reference</button>
+			</div>
+
+			<div>
+				<p>{{collections}}</p>
+				<button ng-click="watchFunction('collections')">click to change collections</button>
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+</body>
+<script src="./js/libs/angular.min.js"></script>
+<script src="./js/app.js"></script>
+</html>
+
